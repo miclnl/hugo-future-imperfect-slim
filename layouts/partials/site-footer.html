@@ -1,12 +1,16 @@
 <footer id="site-footer">
   {{ if or (.Site.Params.footer.rssFooter) (.Site.Params.footer.socialFooter) }}
       <ul class="socnet-icons">
-        {{ if .Site.Params.footer.rssFooter }}bla{{ partial "rss-icon" . }}{{ end }}
+        {{ if .Site.Params.footer.rssFooter }}
+			{{ with .OutputFormats.Get "RSS" }}
+				<li><a href="{{ .RelPermalink }}" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
+			{{ end }}
+		{{ end }}
         {{ if .Site.Params.footer.socialFooter }}{{ partial "socnet-icon" . }}{{ end }}
       </ul>
   {{ end }}
   <p class="copyright">
-    {{ (.Site.Copyright | safeHTML) | default (print "&copy; " .Site.LastChange.Year " " (.Site.Params.author | default .Site.Title)) }}
+    {{ (.Site.Copyright | safeHTML) | default (print "\u00A9 " .Site.LastChange.Year " " (.Site.Params.author | default .Site.Title)) }}
       <br>
     {{ i18n "attribution" . | safeHTML }}
   </p>
