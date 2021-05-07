@@ -2,6 +2,7 @@
   let form = document.querySelector('.new-comment');
   if (form) {
     form.addEventListener('submit', function (evt) {
+	  evt.preventDefault();
       form.classList.add('loading');
       form.querySelector('input[type="submit"]:enabled').classList.add('hidden'); // hide "submit"
       form.querySelector('input[type="submit"]:disabled').classList.remove('hidden'); // show "submitted"
@@ -28,7 +29,7 @@
           xhrObj.options.reCaptcha[key.slice(b + 11, -1)] = value;
         }
       });
-	  evt.preventDefault();
+	  
       let formData = JSON.stringify(xhrObj);  // some API don't accept FormData objects
 
 	
