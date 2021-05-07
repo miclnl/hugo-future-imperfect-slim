@@ -34,6 +34,7 @@
           <input type='hidden' name='fields[replyThread]' value=''>
           <input type='hidden' name='fields[replyID]' value=''>
           <input type='hidden' name='fields[replyName]' value=''>
+		  <input type='hidden' name='option[redirect]' value='{{ .Permalink }}'>
 
           {{/* User input fields */}}
           <input required name='fields[name]' type='text' placeholder='{{ i18n "form_name" }}'>
