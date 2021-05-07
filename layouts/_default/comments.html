@@ -22,7 +22,7 @@
     {{/* Additional div wrapper for proper consistent margin */}}
     <div>
       <h2 id='say-something'>{{ i18n "say_something" }}</h2>
-        {{ with .Site.Params.staticman }} <form id='comment-form' class='new-comment' method='POST' action='{{ print .api "/" .gitProvider "/" .username "/" .repo "/" .branch "/comments" }}'> {{ end }}
+        {{ with .Site.Params.staticman }} <form id='comment-form' class='new-comment' method='POST' action='{{ print .api "/" .gitProvider "/" .username "/" .repo "/" .branch "/comments" | safeHTML }}'> {{ end }}
           {{/* Display reply target */}}
           <h3 class='reply-notice hidden'>
             <span class='reply-name'></span>
