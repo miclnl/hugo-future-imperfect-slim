@@ -1,11 +1,10 @@
 (function() {
   let form = document.querySelector('.new-comment');
   if (form) {
-    form.addEventListener('submit', function () {
+    form.addEventListener('submit', function (evt) {
       form.classList.add('loading');
       form.querySelector('input[type="submit"]:enabled').classList.add('hidden'); // hide "submit"
       form.querySelector('input[type="submit"]:disabled').classList.remove('hidden'); // show "submitted"
-
       // Construct form action URL form JS to avoid spam
       let api = '{{ .api }}';
       let gitProvider = '{{ .gitprovider }}';
@@ -29,9 +28,10 @@
           xhrObj.options.reCaptcha[key.slice(b + 11, -1)] = value;
         }
       });
+	  evt.preventDefault();
       let formData = JSON.stringify(xhrObj);  // some API don't accept FormData objects
 
-
+	
       let xhr = new XMLHttpRequest();
       xhr.open('POST', url);
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
