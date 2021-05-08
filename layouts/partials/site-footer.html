@@ -12,11 +12,12 @@
   <p class="copyright">
     {{ (.Site.Copyright | safeHTML) | default (print "\u00A9 " .Site.LastChange.Year " " (.Site.Params.author | default .Site.Title)) }}
       <br>
+	  <a href="{{ absURL "privacybeleid" }}">Privacybeleid</a> |
     {{ i18n "attribution" . | safeHTML }}
   </p>
 </footer>
 <a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
-<script type="text/javascript">
+<script type='text/plain' cookie-consent='strictly-necessary'>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
@@ -26,4 +27,13 @@
       }
     });
   }
+</script>
+<script type="text/plain" cookie-consent="tracking">if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"gznd",utcoffset:"1"}))};sessionStorage.setItem("_swa","1");</script>
+
+<!-- Cookie Consent by https://www.CookieConsent.com -->
+<script type="text/javascript" src="//www.cookieconsent.com/releases/3.1.0/cookie-consent.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"implied","palette":"light","language":"nl","website_name":"Zelfstandiggezond","cookies_policy_url":"https://www.zelfstandiggezond.nl/about/privacybeleid"});
+});
 </script>

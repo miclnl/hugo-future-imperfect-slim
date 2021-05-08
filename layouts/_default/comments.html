@@ -36,8 +36,9 @@
           <input type='hidden' name='fields[replyName]' value=''>
 
           {{/* User input fields */}}
-          <input required name='fields[name]' type='text' placeholder='{{ i18n "form_name" }}'>
-          <input required name='fields[email]' type='email' placeholder='{{ i18n "form_email" }}'>
+          <input required name='fields[name]' type='text' placeholder='{{ i18n "form_name" }}*'>
+		  <input required name='fields[website]' type='text' placeholder='{{ i18n "form_website" }}'>
+          <input required name='fields[email]' type='email' placeholder='{{ i18n "form_email" }}*'>
           <textarea required name='fields[body]' placeholder='{{ i18n "form_body" }}' rows='10'></textarea>
 
           {{/* reCAPTHCA v2 */}}
@@ -64,7 +65,7 @@
 
     {{/* Additional div wrapper for proper consistent margin */}}
     <div class='comments-container'>
-      <h2>{{ i18n "comments" }}</h2>
+      <h2><i class="fas fa-comment"></i>{{ i18n "comments" }}</h2>
 
       {{- if .Site.Data.comments -}}
         {{/* $comments collects comment files for the current blog entry */}}
