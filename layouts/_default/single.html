@@ -7,6 +7,7 @@
       </div>
       <div class="content">
         {{ .Render "featured" }}
+		{{- range first 1 .Params.images -}}{{ if .attributed }}<small>{{ .attributed }}</small>{{ end }}{{- end -}}
         {{ .Content }}
       </div>
       <footer>
