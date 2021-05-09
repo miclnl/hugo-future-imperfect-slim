@@ -48,8 +48,29 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+<script type="text/plain" cookie-consent="tracking">if(!sessionStorage.getItem("_swa")&&document.referrer.indexOf(location.protocol+"//"+location.host)!== 0){fetch("https://counter.dev/track?"+new URLSearchParams({referrer:document.referrer,screen:screen.width+"x"+screen.height,user:"gznd",utcoffset:"1"}))};sessionStorage.setItem("_swa","1");</script>
 <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js" cookie-consent="strictly-necessary"></script>
 {{ if and .Site.Params.staticman.recaptcha.siteKey .Site.Params.staticman.recaptcha.encryptedKey }}
   <script type='text/plain' cookie-consent='functionality' src='https://www.google.com/recaptcha/api.js'></script>
 {{- end -}}
 {{- template "_internal/google_analytics_async.html" . -}}
+
+<script type='text/plain' cookie-consent='strictly-necessary'>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+<!-- Cookie Consent by https://www.CookieConsent.com -->
+<script type="text/javascript" src="//www.cookieconsent.com/releases/3.1.0/cookie-consent.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"implied","palette":"light","language":"nl","website_name":"Zelfstandiggezond","cookies_policy_url":"{{ absURL "privacybeleid" }}"});
+});
+</script>
