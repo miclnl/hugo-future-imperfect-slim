@@ -40,11 +40,11 @@
 [read_more]
   other = "Lees verder"
 [share_post]
-  other = "Deel dit bericht"
+  other = "Delen via"
 [check_out]
   other = "Bekijk ook eens dit bericht van"
 [say_something]
-  other = "Vertel iets"
+  other = "Vertel het ons"
 [comments]
   other = "Reacties"
 [nothing_yet]
@@ -54,13 +54,13 @@
 [error_msg]
   other = "Er is helaas iets mis gegaan met het verwerken van je bijdrage. Zorg ervoor dat alle verplichte velden zijn ingevuld en probeer het dan opnieuw."
 [success_msg]
-  other = "Bedankt voor je reactie! Het wordt op de website getoond nadat het is goedgekeurd."
+  other = "Bedankt voor je reactie! Het wordt op de website getoond nadat deze is verwerkt."
 
 # Form
 [form_name]
   other = "Je naam"
 [form_email]
-  other = "Je email adres"
+  other = "Je e-mailadres"
 [form_website]
   other = "Je website"
 [form_subject]

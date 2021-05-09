@@ -2,13 +2,18 @@
 <html lang="{{ .Page.Language | default "en" }}">
   {{ partial "head" . }}
   <body>
-    {{ partial "site-header" . }}
+  {{ partial "site-header" . }}
     <div id="wrapper">
-      {{ partial "site-intro" . }}
+	  {{ if or (not .Site.Params.intro.hideWhenSingleColumn) (and .Page.IsHome .Site.Params.intro.alwaysOnHomepage) }} 
+		{{ partial "site-intro" . }}
+	  {{ end }}
+      
       <main id="site-main">
         {{ block "main" . }}{{ end }}
       </main>
-      {{ partial "site-sidebar" . }}
+	  {{ if or (not .Site.Params.intro.hideWhenSingleColumn) (and .Page.IsHome .Site.Params.intro.alwaysOnHomepage) }} 
+		{{ partial "site-sidebar" . }}
+	  {{ end }}
       {{ partial "site-footer" . }}
       {{ partial "scripts" . }}
     </div>

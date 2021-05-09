@@ -311,7 +311,6 @@ a {
     color: $accent-color;
   }
 }
-
 h1,
 h2,
 h3,
@@ -321,7 +320,9 @@ h6 {
   color: $header-color;
   font-family: $header-font;
   letter-spacing: 0.25em;
+  font-weight: 800;
   line-height: 1.65;
+  margin: 0 0 1em 0;
   text-transform: uppercase;
   a {
     border-bottom: 0;
@@ -609,12 +610,16 @@ figcaption {
 
 .post {
   background:	$white;
-  margin: 1.5em auto;
-  padding: 1em;
-  max-width: 55em;
+  padding: 3em 3em 1em 3em;
+  margin: 0 0 3em 0;
+  position: relative;
+  border: $primary-border;
   > header {
     border-bottom: $primary-border;
-    margin: -1em -1em 0 -1em;
+    margin: -3em 0 3em 0;
+	width: calc(100% + 6em);
+	left: -3em;
+	position: relative;
     text-align: center;
     @include prefix(word-break, break-word, ms);
     @include for-laptop-up {
@@ -629,9 +634,31 @@ figcaption {
       }
     }
     p {
-      margin: -1em 0 0 0;
+      	font-family: "Raleway", Helvetica, sans-serif;
+		font-size: 0.7em;
+		font-weight: 400;
+		letter-spacing: 0.25em;
+		line-height: 2.5;
+		margin-top: -1em;
+		text-transform: uppercase;
     }
-  }
+	.title {
+	  -moz-flex-grow: 1;
+	  -webkit-flex-grow: 1;
+	  -ms-flex-grow: 1;
+	  flex-grow: 1;
+	  -ms-flex: 1;
+	  padding: 3.75em 3em 3.3em 3em;
+	  h2 {
+		font-weight: 900;
+		font-size: 1.5em;
+	  }
+	  > :last-child {
+		margin-bottom: 0;
+	  }
+	}
+	
+  }  
   > div > p,
   > p {
     text-align: justify;
@@ -1119,8 +1146,27 @@ figcaption {
   position: fixed;
   margin-bottom: 3.5em;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 10000;
+}
+@media screen and (max-width: 980px) {
+	#site-header .links {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#site-header {
+		height: 2.75em;
+		line-height: 2.75em;
+		> h1 {
+			padding: 0 0 0 1em;
+		}
+		.main .search {
+			display: none;
+		}
+	}
 }
 
 #site-nav {
@@ -1234,50 +1280,22 @@ figcaption {
   }
 }
 
-#site-intro {
-  grid-area: intro;
-  align-items: center;
-  @include display-flex;
-  flex-direction: column;
-  margin-top: 0.5em;
-  padding: 1em;
-  text-align: center;
-  a {
-    border: 0;
-  }
-  p {
-    opacity: 0.6;
-  }
-  header {
-    h1 {
-      font-size: 1.25em;
-      margin-bottom: 0;
-    }
-  }
-  main {
-    p {
-      font-size: 0.7em;
-      letter-spacing: 0.25em;
-      line-height: 2.5;
-      margin-bottom: 0;
-      text-transform: uppercase;
-    }
-  }
-}
 
 #site-sidebar {
   grid-area: sidebar;
+  flex-direction: row;
   header h1 {
     font-size: 1em;
   }
   > * {
     border-top: $primary-border;
-    margin: 3em 2em 0 2em;
-    padding-top: 3em;
+    margin: 3em 0 0 0;
+    padding: 3em 0 0 0;
   }
   > *:first-child {
     @include for-desktop-up {
       margin-top: 0;
+	  padding-top: 0;
     }
   }
     ul {
@@ -1294,6 +1312,83 @@ figcaption {
     width: max-content;
   }
 }
+@media screen and (max-width: 1280px) {
+	#site-sidebar {
+		margin: 3em 0 0 0;
+		min-width: 0;
+		padding: 3em 0 0 0;
+		width: 100%;
+		overflow-x: hidden;
+	}
+}
+
+#site-intro {
+  grid-area: intro;
+  @include display-flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  padding: 1em;
+
+  a {
+    border: 0;
+  }
+  p {
+    opacity: 0.6;
+  }
+  header {
+    h1 {
+      font-size: 2em;
+	  font-weight: 900;
+      margin-bottom: 0;
+    }
+  }
+  main {
+    p {
+      font-size: 0.7em;
+      letter-spacing: 0.25em;
+      line-height: 2.5;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+		#site-intro {
+			margin: 0 0 3em 0;
+			text-align: center;
+			
+			> header h2 {
+				font-size: 2em;
+			}
+			> header p {
+				font-size: 0.7em;
+			}
+		}
+	}
+@media screen and (max-width: 736px) {
+		#site-intro {
+			margin: 0 0 1.5em 0;
+			padding: 1.25em 0;
+			text-align: center;
+
+			> :last-child {
+			  margin-bottom: 0;
+			}
+
+			img {
+			  margin: 0 0 0.5em 0;
+			}
+
+			> header {
+				h2 {
+			  font-size: 1.25em;
+				}
+				> :last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
 
 #categories {
 }
@@ -1318,6 +1413,7 @@ figcaption {
 
 #site-main {
   grid-area: main;
+  flex-direction: column;
 }
 
 #site-footer {
@@ -1364,35 +1460,55 @@ figcaption {
     display: none;
   }
 }
-
 #wrapper {
   display: -ms-grid;
   display: grid;
+  grid-template-columns: 22em 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0px 3em;
   grid-template-areas:
-    "intro"
-    "main"
-    "sidebar"
-    "footer";
-  grid-template-rows: auto 1fr auto auto;
-  margin: 0 auto;
-  max-width: 90em;
-  min-height: 100vh;
+    "intro main"
+    "sidebar main"
+    ". footer";
   transition: opacity $hover-slow;
+  margin: 0 auto;
+  opacity: 1;
+  padding: 4em;
+  max-width: 90em;
   @include for-desktop-up {
-    grid-template-areas:
-      "intro main"
-      "sidebar main"
-      "footer main"
-      "blank main";
-    grid-template-columns: 22em 1fr;
-    grid-template-rows: auto auto auto 1fr;
-    padding: 0 2.5em;
-  }
-  &.overlay {
-    opacity: 0.25;
-  }
+	grid-template-columns: 22em 1fr;
+	grid-template-rows: max-content auto auto;
+	gap: 0px 3em;
+	grid-template-areas:
+		"intro main"
+		"sidebar main"
+		". footer";
+   }
+   &.overlay {
+	opacity: 0.25;
+   }
 }
+	@media screen and (max-width: 1680px) {
+		#wrapper {
+			padding: 3em;
+		}
 
+	}
+
+	@media screen and (max-width: 1280px) {
+		#wrapper {
+			display: block;
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+	}
+
+	@media screen and (max-width: 736px) {
+		#wrapper {
+			padding: 1.5em;
+		}
+
+	}
 /* ==========================================================================
    Add-Ons
    ========================================================================== */
