@@ -1284,6 +1284,7 @@ figcaption {
 #site-sidebar {
   grid-area: sidebar;
   flex-direction: row;
+  max-width: 22em;
   header h1 {
     font-size: 1em;
   }
@@ -1328,7 +1329,7 @@ figcaption {
   flex-direction: column;
   margin-top: 0.5em;
   padding: 1em;
-
+  max-width: 22em;
   a {
     border: 0;
   }
@@ -1463,7 +1464,7 @@ figcaption {
 #wrapper {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: 22em 1fr;
+  grid-template-columns: max-content 1fr;
   grid-template-rows: auto auto auto;
   gap: 0px 3em;
   grid-template-areas:
@@ -1476,7 +1477,7 @@ figcaption {
   padding: 4em;
   max-width: 90em;
   @include for-desktop-up {
-	grid-template-columns: 22em 1fr;
+	grid-template-columns: max-content 1fr;
 	grid-template-rows: max-content auto auto;
 	gap: 0px 3em;
 	grid-template-areas:
